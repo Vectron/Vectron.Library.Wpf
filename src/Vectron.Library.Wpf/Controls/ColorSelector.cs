@@ -1,10 +1,9 @@
-﻿using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace VectronsLibrary.Wpf.Controls;
+namespace Vectron.Library.Wpf.Controls;
 
 /// <summary>
 /// ColorSelector control.
@@ -47,7 +46,7 @@ public class ColorSelector : ComboBox
         : base()
     {
         ItemsSource = KnownColors;
-        SelectedItem = KnownColors.FirstOrDefault(x => x.Name == "Black");
+        SelectedItem = KnownColors.FirstOrDefault(x => string.Equals(x.Name, "Black", StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>
@@ -71,8 +70,8 @@ public class ColorSelector : ComboBox
     }
 
     /// <summary>
-    /// This could happen when SelectedValuePath has changed,
-    /// SelectedItem has changed, or someone is setting SelectedValue.
+    /// This could happen when SelectedValuePath has changed, SelectedItem has changed, or someone
+    /// is setting SelectedValue.
     /// </summary>
     private static void OnSelectedColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -88,6 +87,6 @@ public class ColorSelector : ComboBox
             }
         }
     }
-}
 
-internal sealed record NamedColor(string Name, Color Color);
+    private sealed record NamedColor(string Name, Color Color);
+}

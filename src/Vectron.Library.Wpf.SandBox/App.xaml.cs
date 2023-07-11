@@ -1,6 +1,6 @@
-﻿using System.Windows;
+using System.Windows;
 
-namespace VectronsLibrary.Wpf.SandBox;
+namespace Vectron.Library.Wpf.SandBox;
 
 /// <summary>
 /// Interaction logic for App.xaml.

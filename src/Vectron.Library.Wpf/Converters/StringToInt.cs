@@ -1,8 +1,7 @@
-﻿using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace VectronsLibrary.Wpf.Converters;
+namespace Vectron.Library.Wpf.Converters;
 
 /// <summary>
 /// Provides a type converter to convert <see cref="string"/> objects to and from number types.
@@ -17,33 +16,34 @@ public class StringToInt : IValueConverter
     /// <inheritdoc/>
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is string items)
+        if (value is not string items)
         {
-            if (targetType == typeof(short))
-            {
-                _ = short.TryParse(items, out var resultValue);
-                return resultValue;
-            }
-            else if (targetType == typeof(int))
-            {
-                _ = int.TryParse(items, out var resultValue);
-                return resultValue;
-            }
-            else if (targetType == typeof(long))
-            {
-                _ = long.TryParse(items, out var resultValue);
-                return resultValue;
-            }
-            else if (targetType == typeof(float))
-            {
-                _ = float.TryParse(items, out var resultValue);
-                return resultValue;
-            }
-            else if (targetType == typeof(double))
-            {
-                _ = double.TryParse(items, out var resultValue);
-                return resultValue;
-            }
+            return 0;
+        }
+
+        if (targetType == typeof(short))
+        {
+            return short.Parse(items, culture);
+        }
+
+        if (targetType == typeof(int))
+        {
+            return int.Parse(items, culture);
+        }
+
+        if (targetType == typeof(long))
+        {
+            return long.Parse(items, culture);
+        }
+
+        if (targetType == typeof(float))
+        {
+            return float.Parse(items, culture);
+        }
+
+        if (targetType == typeof(double))
+        {
+            return double.Parse(items, culture);
         }
 
         return 0;

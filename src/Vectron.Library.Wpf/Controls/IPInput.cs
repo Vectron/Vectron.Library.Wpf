@@ -1,8 +1,8 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace VectronsLibrary.Wpf.Controls;
+namespace Vectron.Library.Wpf.Controls;
 
 /// <summary>
 /// An Ip address input control.
@@ -11,13 +11,13 @@ namespace VectronsLibrary.Wpf.Controls;
 [TemplatePart(Name = ElementSecondIPPartTextBox, Type = typeof(TextBox))]
 [TemplatePart(Name = ElementThirdIPPartTextBox, Type = typeof(TextBox))]
 [TemplatePart(Name = ElementFourthIPPartTextBox, Type = typeof(TextBox))]
-public class IPInput : Control
+public class IpInput : Control
 {
     /// <summary>
     /// Identifies the <see cref="IPAddress"/> dependency property.
     /// </summary>
     public static readonly DependencyProperty IPAddressProperty = DependencyProperty
-        .Register(nameof(IPAddress), typeof(string), typeof(IPInput), new FrameworkPropertyMetadata("127.0.0.1", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IpAddressChanged));
+        .Register(nameof(IPAddress), typeof(string), typeof(IpInput), new FrameworkPropertyMetadata("127.0.0.1", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IpAddressChanged));
 
     private const string ElementFirstIPPartTextBox = "PART_FirstIPPartTextBox";
     private const string ElementFourthIPPartTextBox = "PART_FourthIPPartTextBox";
@@ -28,8 +28,8 @@ public class IPInput : Control
     private TextBox? secondIPPartTextBox;
     private TextBox? thirdIPPartTextBox;
 
-    static IPInput()
-        => DefaultStyleKeyProperty.OverrideMetadata(typeof(IPInput), new FrameworkPropertyMetadata(typeof(IPInput)));
+    static IpInput()
+        => DefaultStyleKeyProperty.OverrideMetadata(typeof(IpInput), new FrameworkPropertyMetadata(typeof(IpInput)));
 
     /// <summary>
     /// Gets or sets the Ip address.
@@ -58,7 +58,7 @@ public class IPInput : Control
         base.OnKeyUp(e);
         if (e is null)
         {
-            throw new System.ArgumentNullException(nameof(e));
+            throw new ArgumentNullException(nameof(e));
         }
 
         var frameworkElement = e.OriginalSource as FrameworkElement;
@@ -90,7 +90,7 @@ public class IPInput : Control
         base.OnPreviewKeyDown(e);
         if (e is null)
         {
-            throw new System.ArgumentNullException(nameof(e));
+            throw new ArgumentNullException(nameof(e));
         }
 
         var frameworkElement = e.OriginalSource as FrameworkElement;
@@ -114,7 +114,7 @@ public class IPInput : Control
 
     private static void IpAddressChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
     {
-        if (dependencyObject is IPInput ipInput)
+        if (dependencyObject is IpInput ipInput)
         {
             ipInput.UpdateTextBoxes();
         }

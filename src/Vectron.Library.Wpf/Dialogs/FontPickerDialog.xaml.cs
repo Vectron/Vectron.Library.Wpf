@@ -1,8 +1,8 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Media;
-using VectronsLibrary.Wpf.Controls;
+using Vectron.Library.Wpf.Controls;
 
-namespace VectronsLibrary.Wpf.Dialogs;
+namespace Vectron.Library.Wpf.Dialogs;
 
 /// <summary>
 /// Interaction logic for FontPickerDialog.xaml.

@@ -1,7 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace VectronsLibrary.Wpf.Controls;
+namespace Vectron.Library.Wpf.Controls;
 
 /// <summary>
 /// Control container that adds a label in front of the control.

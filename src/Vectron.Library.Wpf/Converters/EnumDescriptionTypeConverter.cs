@@ -1,11 +1,10 @@
-﻿using System;
 using System.ComponentModel;
 
-namespace VectronsLibrary.Wpf.Converters;
+namespace Vectron.Library.Wpf.Converters;
 
 /// <summary>
-/// Provides a type converter to convert <see cref="Enum"/> objects to and from various other representations.
-/// http://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/.
+/// Provides a type converter to convert <see cref="Enum"/> objects to and from various other
+/// representations. http://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/.
 /// </summary>
 public class EnumDescriptionTypeConverter : EnumConverter
 {
@@ -32,8 +31,8 @@ public class EnumDescriptionTypeConverter : EnumConverter
             return string.Empty;
         }
 
-        var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
-        return ((attributes.Length > 0) && (!string.IsNullOrEmpty(attributes[0].Description)))
+        var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), inherit: false);
+        return attributes.Length > 0 && !string.IsNullOrEmpty(attributes[0].Description)
             ? attributes[0].Description
             : value.ToString();
     }

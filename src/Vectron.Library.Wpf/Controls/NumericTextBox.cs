@@ -1,8 +1,8 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace VectronsLibrary.Wpf.Controls;
+namespace Vectron.Library.Wpf.Controls;
 
 /// <summary>
 /// A numeric only <see cref="TextBox"/>.
@@ -12,14 +12,26 @@ public class NumericTextBox : TextBox
     /// <summary>
     /// Identifies the <see cref="Label"/> dependency property.
     /// </summary>
-    public static readonly DependencyProperty AllowDecimalProperty = DependencyProperty
-        .Register(nameof(AllowDecimal), typeof(bool), typeof(NumericTextBox), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+    public static readonly DependencyProperty AllowDecimalProperty =
+        DependencyProperty.Register(
+            nameof(AllowDecimal),
+            typeof(bool),
+            typeof(NumericTextBox),
+            new FrameworkPropertyMetadata(
+                defaultValue: false,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
     /// <summary>
     /// Identifies the <see cref="Label"/> dependency property.
     /// </summary>
-    public static readonly DependencyProperty AllowNegativeProperty = DependencyProperty
-        .Register(nameof(AllowNegative), typeof(bool), typeof(NumericTextBox), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+    public static readonly DependencyProperty AllowNegativeProperty =
+        DependencyProperty.Register(
+            nameof(AllowNegative),
+            typeof(bool),
+            typeof(NumericTextBox),
+            new FrameworkPropertyMetadata(
+                defaultValue: false,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
     static NumericTextBox()
     {
@@ -78,10 +90,10 @@ public class NumericTextBox : TextBox
     {
         if ((e.Key < Key.D0 || e.Key > Key.D9) // Key is not a decimal key
             && (e.Key < Key.NumPad0 || e.Key > Key.NumPad9) // Key is not a numpad decimal key
-            && (e.Key != Key.Back) // key is not backspace
+            && e.Key != Key.Back // key is not backspace
             && (!AllowDecimal || (AllowDecimal && e.Key != Key.OemComma)) // Decimal numbers are not allowed or key is not the comma key
             && (!AllowNegative || (AllowNegative && CaretIndex != 0 && (e.Key != Key.Subtract || e.Key != Key.OemMinus))) // minus numbers are not allowed or key is not the minus key
-            && (e.Key != Key.Tab))
+            && e.Key != Key.Tab)
         {
             e.Handled = true;
         }
@@ -100,11 +112,12 @@ public class NumericTextBox : TextBox
             return false;
         }
 
-        if (int.TryParse(text, out _))
+        if (int.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out _))
         {
             return true;
         }
-        else if (double.TryParse(text, out _))
+
+        if (double.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out _))
         {
             return true;
         }

@@ -1,11 +1,9 @@
-﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace VectronsLibrary.Wpf.Converters;
+namespace Vectron.Library.Wpf.Converters;
 
 /// <summary>
 /// Provides a type converter to convert <see cref="FamilyTypefaceCollection"/> objects to and from <see langword="string"/>.
@@ -23,7 +21,7 @@ public class ColorToNameConverter : IValueConverter
         var colors = typeof(Colors);
         properties = colors
             .GetProperties(BindingFlags.Static | BindingFlags.Public)
-            .ToLookup(x => (Color)x.GetValue(null, null)!, x => x.Name);
+            .ToLookup(x => (Color)x.GetValue(null, index: null)!, x => x.Name);
     }
 
     /// <inheritdoc/>

@@ -1,11 +1,9 @@
-﻿using System;
 using System.Windows.Markup;
 
-namespace VectronsLibrary.Wpf.Extensions;
+namespace Vectron.Library.Wpf.Extensions;
 
 /// <summary>
-/// <see cref="MarkupExtension"/> that creates a bind able list of enum values.
-/// http://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/.
+/// <see cref="MarkupExtension"/> that creates a bind able list of enum values. http://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/.
 /// </summary>
 public class EnumBindingSourceExtension : MarkupExtension
 {
@@ -38,11 +36,11 @@ public class EnumBindingSourceExtension : MarkupExtension
             {
                 if (value != null)
                 {
-                    var enumType = Nullable.GetUnderlyingType(value) ?? value;
+                    var underlyingType = Nullable.GetUnderlyingType(value) ?? value;
 
-                    if (!enumType.IsEnum)
+                    if (!underlyingType.IsEnum)
                     {
-                        throw new ArgumentException("Type must be for an Enum.");
+                        throw new InvalidOperationException("Type must be for an Enum.");
                     }
                 }
 

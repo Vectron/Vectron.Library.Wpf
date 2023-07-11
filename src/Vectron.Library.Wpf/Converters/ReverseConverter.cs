@@ -1,9 +1,8 @@
-﻿using System;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace VectronsLibrary.Wpf.Converters;
+namespace Vectron.Library.Wpf.Converters;
 
 /// <summary>
 /// Provides a type converter to convert to reverse other converters.

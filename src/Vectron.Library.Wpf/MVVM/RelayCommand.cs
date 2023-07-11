@@ -1,7 +1,6 @@
-﻿using System;
 using System.Windows.Input;
 
-namespace VectronsLibrary.Wpf.MVVM;
+namespace Vectron.Library.Wpf.MVVM;
 
 /// <summary>
 /// A <see cref="ICommand"/> to bind to commands.

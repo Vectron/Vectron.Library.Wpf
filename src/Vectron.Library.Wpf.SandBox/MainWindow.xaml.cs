@@ -1,6 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
+using Vectron.Library.Wpf.Dialogs;
 
-namespace VectronsLibrary.Wpf.SandBox;
+namespace Vectron.Library.Wpf.SandBox;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml.
@@ -15,7 +16,7 @@ public partial class MainWindow : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        var fontDialog = new FontDialog();
+        var fontDialog = new FontPickerDialog();
         fontDialog.ShowDialog();
     }
 }

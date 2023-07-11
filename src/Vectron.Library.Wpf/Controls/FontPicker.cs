@@ -1,8 +1,8 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace VectronsLibrary.Wpf.Controls;
+namespace Vectron.Library.Wpf.Controls;
 
 /// <summary>
 /// FontPicker control.

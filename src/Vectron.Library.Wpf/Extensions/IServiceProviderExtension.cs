@@ -1,8 +1,7 @@
-﻿using System;
 using System.Globalization;
 using System.Windows;
 
-namespace VectronsLibrary.Wpf.Extensions;
+namespace Vectron.Library.Wpf.Extensions;
 
 /// <summary>
 /// Extensions for <see cref="IServiceProvider"/>.
@@ -14,10 +13,15 @@ public static class IServiceProviderExtension
     /// <summary>
     /// Get a <typeparamref name="TView"/> and bind the <typeparamref name="TViewModel"/> to the <see cref="FrameworkElement.DataContext"/>.
     /// </summary>
-    /// <typeparam name="TView">The type of <see cref="FrameworkElement"/> that needs to be created.</typeparam>
+    /// <typeparam name="TView">
+    /// The type of <see cref="FrameworkElement"/> that needs to be created.
+    /// </typeparam>
     /// <typeparam name="TViewModel">The type of the view model.</typeparam>
     /// <param name="serviceProvider">The <see cref="IServiceProvider"/> used to instantiate services.</param>
-    /// <returns> A service object of type <typeparamref name="TView"/>. -or- null if there is no service object of type <typeparamref name="TView"/>.</returns>
+    /// <returns>
+    /// A service object of type <typeparamref name="TView"/>. -or- null if there is no service
+    /// object of type <typeparamref name="TView"/>.
+    /// </returns>
     public static TView GetView<TView, TViewModel>(this IServiceProvider serviceProvider)
         where TView : FrameworkElement
     {

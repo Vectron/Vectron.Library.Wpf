@@ -1,9 +1,8 @@
-﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Xaml.Behaviors;
 
-namespace VectronsLibrary.Wpf.Behaviors;
+namespace Vectron.Library.Wpf.Behaviors;
 
 /// <summary>
 /// A <see cref="Behavior"/> that keeps the selected item in view.
@@ -13,15 +12,15 @@ public class ListBoxScrollIntoViewBehavior : Behavior<ListBox>
     /// <summary>
     /// An attached property for selecting all text on focus.
     /// </summary>
-    /// <seealso cref="GetScrollIntoView" />
-    /// <seealso cref="SetScrollIntoView" />
+    /// <seealso cref="GetScrollIntoView"/>
+    /// <seealso cref="SetScrollIntoView"/>
     public static readonly DependencyProperty ScrollIntoViewProperty =
         DependencyProperty.RegisterAttached(
             "ScrollIntoView",
             typeof(bool),
             typeof(ListBoxScrollIntoViewBehavior),
             new FrameworkPropertyMetadata(
-                false,
+                defaultValue: false,
                 new PropertyChangedCallback(OnScrollIntoViewChanged)));
 
     /// <summary>

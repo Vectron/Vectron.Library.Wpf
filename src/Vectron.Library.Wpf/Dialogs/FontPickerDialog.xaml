@@ -1,10 +1,10 @@
-﻿<Window
-    x:Class="VectronsLibrary.Wpf.Dialogs.FontPickerDialog"
+<Window
+    x:Class="Vectron.Library.Wpf.Dialogs.FontPickerDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ctr="clr-namespace:VectronsLibrary.Wpf.Controls"
+    xmlns:ctr="clr-namespace:Vectron.Library.Wpf.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dialogs="clr-namespace:VectronsLibrary.Wpf.Dialogs"
+    xmlns:dialogs="clr-namespace:Vectron.Library.Wpf.Dialogs"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Font"
     d:DataContext="{d:DesignInstance Type=dialogs:FontPickerDialog}"

@@ -1,11 +1,11 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Xaml.Behaviors;
-using VectronsLibrary.Wpf.Controls;
+using Vectron.Library.Wpf.Controls;
 
-namespace VectronsLibrary.Wpf.Behaviors;
+namespace Vectron.Library.Wpf.Behaviors;
 
 /// <summary>
 /// Attached properties for <see cref="TextBox"/>.
@@ -15,15 +15,15 @@ public class TextBoxHighlightTextOnFocus : Behavior<TextBox>
     /// <summary>
     /// An attached property for selecting all text on focus.
     /// </summary>
-    /// <seealso cref="GetHighlightTextOnFocus" />
-    /// <seealso cref="SetHighlightTextOnFocus" />
+    /// <seealso cref="GetHighlightTextOnFocus"/>
+    /// <seealso cref="SetHighlightTextOnFocus"/>
     public static readonly DependencyProperty HighlightTextOnFocusProperty =
         DependencyProperty.RegisterAttached(
             "HighlightTextOnFocus",
             typeof(bool),
             typeof(TextBoxHighlightTextOnFocus),
             new FrameworkPropertyMetadata(
-                false,
+                defaultValue: false,
                 HighlightTextOnFocusPropertyChanged));
 
     /// <summary>
