@@ -89,5 +89,5 @@ public class ColorSelector : ComboBox
         }
     }
 
-    private sealed record NamedColor(string Name, Color Color);
+    internal sealed record NamedColor(string Name, Color Color);
 }
