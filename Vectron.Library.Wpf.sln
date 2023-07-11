@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2FDE273-4A69-4595-B1E9-B9DDB2A7E535}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{93864F02-6CBB-4075-8FCE-EE6B2140953C}"
+	ProjectSection(SolutionItems) = preProject
+		tests\.editorconfig = tests\.editorconfig
+		tests\Directory.Build.props = tests\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{42014BDB-4E49-4677-809B-CF86DE5A662B}"
 	ProjectSection(SolutionItems) = preProject
@@ -55,5 +59,8 @@ Global
 		{D6E3CDD6-C080-461F-A768-8E5911C9B8DC} = {42014BDB-4E49-4677-809B-CF86DE5A662B}
 		{3E8F5F9B-993B-4345-A1E0-832F4A24CD8B} = {E2FDE273-4A69-4595-B1E9-B9DDB2A7E535}
 		{81EA3EE9-8D19-436D-85B2-A0BAF0982BEF} = {E2FDE273-4A69-4595-B1E9-B9DDB2A7E535}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {734013D8-AA13-4671-BBEA-B15E4964E2AB}
 	EndGlobalSection
 EndGlobal
