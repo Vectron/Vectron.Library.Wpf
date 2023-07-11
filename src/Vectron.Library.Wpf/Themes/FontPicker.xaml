@@ -191,6 +191,9 @@
                                 Grid.ColumnSpan="5"
                                 Header="Preview">
                                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
+                                    <ScrollViewer.Resources>
+                                        <SolidColorBrush x:Key="FontPickerForgroundBrush" Color="{Binding SelectedFontColor, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
+                                    </ScrollViewer.Resources>
                                     <TextBox
                                         VerticalAlignment="Center"
                                         BorderThickness="0"
@@ -199,12 +202,9 @@
                                         FontStretch="{Binding SelectedFontStretch, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
                                         FontStyle="{Binding SelectedFontStyle, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
                                         FontWeight="{Binding SelectedFontWeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
+                                        Foreground="{StaticResource FontPickerForgroundBrush}"
                                         Text="The quick brown fox jumped over the lazy old brown dog."
-                                        TextAlignment="Center">
-                                        <TextBox.Foreground>
-                                            <SolidColorBrush Color="{Binding SelectedFontColor, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
-                                        </TextBox.Foreground>
-                                    </TextBox>
+                                        TextAlignment="Center" />
                                 </ScrollViewer>
                             </GroupBox>
                         </Grid>
