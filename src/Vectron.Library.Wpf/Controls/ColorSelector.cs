@@ -24,20 +24,21 @@ public class ColorSelector : ComboBox
                 new PropertyChangedCallback(OnSelectedColorChanged)));
 
     private static readonly NamedColor[] KnownColors = typeof(Colors)
-            .GetProperties(BindingFlags.Static | BindingFlags.Public)
-            .Select(p =>
+        .GetProperties(BindingFlags.Static | BindingFlags.Public)
+        .Select(p =>
+        {
+            var c = p.GetValue(null);
+            if (c is not null and Color color)
             {
-                var c = p.GetValue(null);
-                if (c is not null and Color color)
-                {
-                    return new NamedColor(p.Name, color);
-                }
+                return new NamedColor(p.Name, color);
+            }
 
-                return new NamedColor(p.Name, default);
-            }).ToArray();
+            return new NamedColor(p.Name, default);
+        })
+        .ToArray();
 
     static ColorSelector()
-            => DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorSelector), new FrameworkPropertyMetadata(typeof(ColorSelector)));
+        => DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorSelector), new FrameworkPropertyMetadata(typeof(ColorSelector)));
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ColorSelector"/> class.
