@@ -6,7 +6,7 @@ using System.Windows.Media;
 namespace Vectron.Library.Wpf.Converters;
 
 /// <summary>
-/// Provides a type converter to convert <see cref="FamilyTypefaceCollection"/> objects to and from <see langword="string"/>.
+/// Provides a type converter to convert <see cref="Color"/> objects to and from <see langword="string"/>.
 /// </summary>
 [ValueConversion(typeof(Color), typeof(string))]
 public class ColorToNameConverter : IValueConverter
