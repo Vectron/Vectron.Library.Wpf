@@ -4,7 +4,8 @@
     xmlns:behaviors="clr-namespace:Vectron.Library.Wpf.Behaviors"
     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     xmlns:controls="clr-namespace:Vectron.Library.Wpf.Controls"
-    xmlns:converters="clr-namespace:Vectron.Library.Wpf.Converters">
+    xmlns:converters="clr-namespace:Vectron.Library.Wpf.Converters"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
 
     <Style TargetType="{x:Type controls:FontPicker}">
         <Setter Property="Template">
@@ -54,7 +55,6 @@
                                 Grid.Row="2"
                                 Grid.RowSpan="4"
                                 Grid.Column="0"
-                                behaviors:ListBoxScrollIntoViewBehavior.ScrollIntoView="True"
                                 IsSynchronizedWithCurrentItem="True"
                                 ItemsSource="{Binding Source={StaticResource fontFamilies}}"
                                 SelectedItem="{Binding SelectedFontFamily, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
@@ -63,6 +63,9 @@
                                         <Setter Property="FontFamily" Value="{Binding}" />
                                     </Style>
                                 </ListBox.Resources>
+                                <i:Interaction.Behaviors>
+                                    <behaviors:ListBoxScrollIntoViewBehavior />
+                                </i:Interaction.Behaviors>
                             </ListBox>
 
                             <!--  Style  -->
@@ -92,7 +95,6 @@
                                 <ListBox
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    behaviors:ListBoxScrollIntoViewBehavior.ScrollIntoView="True"
                                     IsSynchronizedWithCurrentItem="True"
                                     ItemsSource="{Binding SelectedFontFamily.FamilyTypefaces, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={StaticResource selectProperty}, ConverterParameter=Style}"
                                     SelectedItem="{Binding SelectedFontStyle, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
@@ -101,6 +103,9 @@
                                             <Setter Property="FontStyle" Value="{Binding}" />
                                         </Style>
                                     </ListBox.Resources>
+                                    <i:Interaction.Behaviors>
+                                        <behaviors:ListBoxScrollIntoViewBehavior />
+                                    </i:Interaction.Behaviors>
                                 </ListBox>
 
                                 <!--  Weight  -->
@@ -115,7 +120,6 @@
                                 <ListBox
                                     Grid.Row="2"
                                     Grid.Column="1"
-                                    behaviors:ListBoxScrollIntoViewBehavior.ScrollIntoView="True"
                                     IsSynchronizedWithCurrentItem="True"
                                     ItemsSource="{Binding SelectedFontFamily.FamilyTypefaces, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={StaticResource selectProperty}, ConverterParameter=Weight}"
                                     SelectedItem="{Binding SelectedFontWeight, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
@@ -124,6 +128,9 @@
                                             <Setter Property="FontWeight" Value="{Binding}" />
                                         </Style>
                                     </ListBox.Resources>
+                                    <i:Interaction.Behaviors>
+                                        <behaviors:ListBoxScrollIntoViewBehavior />
+                                    </i:Interaction.Behaviors>
                                 </ListBox>
 
                                 <!--  Stretch  -->
@@ -138,7 +145,6 @@
                                 <ListBox
                                     Grid.Row="2"
                                     Grid.Column="2"
-                                    behaviors:ListBoxScrollIntoViewBehavior.ScrollIntoView="True"
                                     IsSynchronizedWithCurrentItem="True"
                                     ItemsSource="{Binding SelectedFontFamily.FamilyTypefaces, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={StaticResource selectProperty}, ConverterParameter=Stretch}"
                                     SelectedItem="{Binding SelectedFontStretch, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
@@ -147,6 +153,9 @@
                                             <Setter Property="FontStretch" Value="{Binding}" />
                                         </Style>
                                     </ListBox.Resources>
+                                    <i:Interaction.Behaviors>
+                                        <behaviors:ListBoxScrollIntoViewBehavior />
+                                    </i:Interaction.Behaviors>
                                 </ListBox>
                             </Grid>
 
