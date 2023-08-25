@@ -467,3 +467,6 @@ dotnet_diagnostic.SA1200.severity = none
 dotnet_diagnostic.SA1633.severity = none
 
 dotnet_diagnostic.MA0026.severity = warning       # MA0026: Fix TODO comment
+
+# deprecated, use CA1822 instead (https://github.com/meziantou/Meziantou.Analyzer/blob/main/docs/Rules/MA0038.md)
+dotnet_diagnostic.MA0038.severity = none
