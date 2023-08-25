@@ -45,7 +45,7 @@ public class TextBoxHighlightTextOnFocus : Behavior<TextBox>
         return null;
     }
 
-    private void OnKeyboardFocusSelectText(object sender, KeyboardFocusChangedEventArgs e)
+    private static void OnKeyboardFocusSelectText(object sender, KeyboardFocusChangedEventArgs e)
     {
         if (e.OriginalSource is TextBox textBox)
         {
@@ -53,7 +53,7 @@ public class TextBoxHighlightTextOnFocus : Behavior<TextBox>
         }
     }
 
-    private void OnMouseLeftButtonDownSetFocus(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonDownSetFocus(object sender, MouseButtonEventArgs e)
     {
         var textBox = FindAncestor<TextBox>((DependencyObject)e.OriginalSource);
 
