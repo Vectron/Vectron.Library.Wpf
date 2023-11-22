@@ -6,17 +6,12 @@ namespace Vectron.Library.Wpf.Converters;
 /// Provides a type converter to convert <see cref="Enum"/> objects to and from various other
 /// representations. http://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/.
 /// </summary>
-public class EnumDescriptionTypeConverter : EnumConverter
+/// <remarks>
+/// Initializes a new instance of the <see cref="EnumDescriptionTypeConverter"/> class.
+/// </remarks>
+/// <param name="type">The type to convert.</param>
+public class EnumDescriptionTypeConverter(Type type) : EnumConverter(type)
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EnumDescriptionTypeConverter"/> class.
-    /// </summary>
-    /// <param name="type">The type to convert.</param>
-    public EnumDescriptionTypeConverter(Type type)
-        : base(type)
-    {
-    }
-
     /// <inheritdoc/>
     public override object? ConvertTo(ITypeDescriptorContext? context, System.Globalization.CultureInfo? culture, object? value, Type destinationType)
     {

@@ -6,11 +6,13 @@ namespace Vectron.Library.Wpf.MVVM;
 /// A <see cref="ICommand"/> to bind to commands.
 /// </summary>
 /// <typeparam name="T">The type of passed parameter.</typeparam>
-public class RelayCommand<T> : ICommand<T>
+/// <remarks>
+/// Initializes a new instance of the <see cref="RelayCommand{T}"/> class.
+/// </remarks>
+/// <param name="execute">The Action that needs to be executed when command is triggered.</param>
+/// <param name="canExecute">The action to check if the command can be executed.</param>
+public class RelayCommand<T>(Action<T?> execute, Predicate<T?> canExecute) : ICommand<T>
 {
-    private Predicate<T?> canExecute;
-    private Action<T?> execute;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="RelayCommand{T}"/> class.
     /// </summary>
@@ -18,17 +20,6 @@ public class RelayCommand<T> : ICommand<T>
     public RelayCommand(Action<T?> execute)
         : this(execute, DefaultCanExecute)
     {
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RelayCommand{T}"/> class.
-    /// </summary>
-    /// <param name="execute">The Action that needs to be executed when command is triggered.</param>
-    /// <param name="canExecute">The action to check if the command can be executed.</param>
-    public RelayCommand(Action<T?> execute, Predicate<T?> canExecute)
-    {
-        this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
-        this.canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
     }
 
     /// <inheritdoc/>
