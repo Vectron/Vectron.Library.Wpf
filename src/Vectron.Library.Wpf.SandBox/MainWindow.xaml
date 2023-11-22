@@ -12,7 +12,10 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="5">
-            <Button Click="Button_Click" />
+            <Button
+                MinHeight="30"
+                Click="Button_Click"
+                Content="Open font dialog" />
             <vec:ColorSelector x:Name="colorSelector" Margin="5" />
             <vec:LabeledControl Margin="5" Label="Text label">
                 <TextBlock Text="{Binding SelectedColor, ElementName=colorSelector}" />
