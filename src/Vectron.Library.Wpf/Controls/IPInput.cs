@@ -56,10 +56,7 @@ public class IpInput : Control
     protected override void OnKeyUp(KeyEventArgs e)
     {
         base.OnKeyUp(e);
-        if (e is null)
-        {
-            throw new ArgumentNullException(nameof(e));
-        }
+        ArgumentNullException.ThrowIfNull(e);
 
         var frameworkElement = e.OriginalSource as FrameworkElement;
 
@@ -88,10 +85,7 @@ public class IpInput : Control
     protected override void OnPreviewKeyDown(KeyEventArgs e)
     {
         base.OnPreviewKeyDown(e);
-        if (e is null)
-        {
-            throw new ArgumentNullException(nameof(e));
-        }
+        ArgumentNullException.ThrowIfNull(e);
 
         var frameworkElement = e.OriginalSource as FrameworkElement;
 
