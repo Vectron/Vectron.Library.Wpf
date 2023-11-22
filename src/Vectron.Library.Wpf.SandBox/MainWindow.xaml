@@ -20,6 +20,18 @@
             <vec:IpInput Margin="5" />
             <vec:NumericTextBox Margin="5" />
             <vec:FontPicker MaxHeight="300" Margin="5" />
+            <vec:LedControl
+                MinHeight="30"
+                Content="On led control"
+                IsChecked="True"
+                OffColor="Green"
+                OnColor="IndianRed" />
+            <vec:LedControl
+                MinHeight="30"
+                Content="Off led control"
+                IsChecked="False"
+                OffColor="Green"
+                OnColor="IndianRed" />
         </StackPanel>
     </ScrollViewer>
 </Window>

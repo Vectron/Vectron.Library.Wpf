@@ -4,5 +4,6 @@
         <ResourceDictionary Source="pack://application:,,,/Vectron.Library.Wpf;component/Themes/LabeledControl.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Vectron.Library.Wpf;component/Themes/ColorSelector.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Vectron.Library.Wpf;component/Themes/FontPicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Vectron.Library.Wpf;component/Themes/LedControl.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
