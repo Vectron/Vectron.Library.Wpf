@@ -12,6 +12,8 @@ namespace Vectron.Library.Wpf.MVVM;
 /// <param name="canExecute">The action to check if the command can be executed.</param>
 public class RelayCommand(Action<object?> execute, Predicate<object?> canExecute) : ICommand
 {
+    private bool destroyed;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="RelayCommand"/> class.
     /// </summary>
@@ -47,23 +49,24 @@ public class RelayCommand(Action<object?> execute, Predicate<object?> canExecute
 
     /// <inheritdoc/>
     public bool CanExecute(object? parameter)
-        => canExecute != null && canExecute(parameter);
+        => canExecute != null && !destroyed && canExecute(parameter);
 
     /// <summary>
     /// Destroy this <see cref="ICommand"/> so it wont trigger anymore.
     /// </summary>
     public void Destroy()
-    {
-        canExecute = _ => false;
-        execute = _ =>
-        {
-            return;
-        };
-    }
+        => destroyed = true;
 
     /// <inheritdoc/>
     public void Execute(object? parameter)
-        => execute(parameter);
+    {
+        if (destroyed)
+        {
+            return;
+        }
+
+        execute(parameter);
+    }
 
     /// <summary>
     /// Trigger event that on execute has changed.
