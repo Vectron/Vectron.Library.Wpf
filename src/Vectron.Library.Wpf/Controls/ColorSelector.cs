@@ -89,5 +89,10 @@ public class ColorSelector : ComboBox
         }
     }
 
+    /// <summary>
+    /// Represents a named color.
+    /// </summary>
+    /// <param name="Name">The name of the color.</param>
+    /// <param name="Color">The color value.</param>
     internal sealed record NamedColor(string Name, Color Color);
 }
