@@ -8,7 +8,11 @@ namespace Vectron.Library.Wpf.Extensions;
 /// </summary>
 public static class IServiceProviderExtension
 {
+#if NET8_0_OR_GREATER
+    private static readonly System.Text.CompositeFormat ServiceNotFound = System.Text.CompositeFormat.Parse("Format one value: {0}");
+#else
     private const string ServiceNotFound = "No service for type '{0}' has been registered.";
+#endif
 
     /// <summary>
     /// Get a <typeparamref name="TView"/> and bind the <typeparamref name="TViewModel"/> to the <see cref="FrameworkElement.DataContext"/>.
