@@ -46,9 +46,9 @@ public class RelayCommand<T>(Action<T?> execute, Predicate<T?> canExecute) : ICo
     public bool CanExecute(object? parameter)
         => parameter == null
         ? CanExecute((T?)parameter)
-        : parameter.GetType() != typeof(T)
+        : parameter is not T converted
             ? throw new ArgumentException("Parameter if of wrong type", nameof(parameter))
-            : CanExecute((T)parameter);
+            : CanExecute(converted);
 
     /// <inheritdoc/>
     public bool CanExecute(T? parameter)
@@ -74,12 +74,12 @@ public class RelayCommand<T>(Action<T?> execute, Predicate<T?> canExecute) : ICo
             return;
         }
 
-        if (parameter.GetType() != typeof(T))
+        if (parameter is not T converted)
         {
             throw new ArgumentException("Parameter if of wrong type", nameof(parameter));
         }
 
-        Execute((T)parameter);
+        Execute(converted);
     }
 
     /// <inheritdoc/>
