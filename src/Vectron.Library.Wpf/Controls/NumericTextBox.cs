@@ -93,7 +93,9 @@ public class NumericTextBox : TextBox
             && e.Key != Key.Back // key is not backspace
             && (!AllowDecimal || (AllowDecimal && e.Key != Key.OemComma)) // Decimal numbers are not allowed or key is not the comma key
             && (!AllowNegative || (AllowNegative && CaretIndex != 0 && (e.Key != Key.Subtract || e.Key != Key.OemMinus))) // minus numbers are not allowed or key is not the minus key
-            && e.Key != Key.Tab)
+            && e.Key != Key.Tab
+            && e.Key != Key.Enter
+            && e.Key != Key.Escape)
         {
             e.Handled = true;
         }
