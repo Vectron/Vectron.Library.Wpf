@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vectron.Library.Wpf.SandBox"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vec="clr-namespace:Vectron.Library.Wpf.Controls;assembly=Vectron.Library.Wpf"
+    xmlns:vec="http://schemas.vectron.me/xaml"
     Title="MainWindow"
     Width="800"
     Height="450"
